@@ -25,7 +25,6 @@ MODELS = {
 }
 
 def get_client():
-    """客户端的诞生，如精灵从瓶中释放"""
     return AsyncOpenAI(
         api_key=STIMA_KEY,
         base_url=STIMA_URL,
@@ -34,26 +33,24 @@ def get_client():
 
 
 async def generate_image(prompt, model_key):
-    """图像生成的仪式，prompt如咒语，模型如画笔"""
     if not STIMA_KEY:
-        raise gr.Error("API密钥缺失，如遗失的灵魂。")
+        raise gr.Error("API Key not find in enviroment")
     
     client = get_client()
     provider, model = MODELS[model_key]
     
     try:
-        # 异步调用，如风中的低语
         response = await client.images.generate(
             model=model,
             prompt=prompt,
             n=1,
-            size="1024x1024",  # 可扩展为参数
+            size="1024x1024",
             response_format="b64_json",
-            user="huggingface-user"  # 匿名追踪
+            user="huggingface-user"
         )
         
         if response.data and response.data[0].b64_json:
-            # base64解码，如揭开面纱
+            # base64解码
             image_data = base64.b64decode(response.data[0].b64_json)
             image = Image.open(BytesIO(image_data))
             return image
@@ -76,14 +73,14 @@ with gr.Blocks(title="AI图像生成工坊", theme=gr.themes.Soft()) as demo:
             model = gr.Dropdown(
                 choices=list(MODELS.keys()),
                 value="OpenAI / GPT-4o Image Generation",
-                label="选择模型"
+                label="選擇模型"
             )
             prompt = gr.Textbox(
                 label="你的prompt",
                 lines=3,
                 placeholder="例如：一个在秋叶中飞舞的机械蝴蝶，背景是废弃的钟塔。"
             )
-            submit = gr.Button("生成图像", variant="primary")
+            submit = gr.Button("生成圖像", variant="primary")
         
         with gr.Column(scale=1):
             output = gr.Image(label="生成的梦境")
