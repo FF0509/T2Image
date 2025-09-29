@@ -1,5 +1,7 @@
 # T2Image
 
+[![Built with](https://img.shields.io/badge/Built%20with-Stima%20API-blueviolet?logo=robot)](https://api.stima.tech)
+
 > Aboout a app that can easy change your text into image.
 
 The model you can choose:
