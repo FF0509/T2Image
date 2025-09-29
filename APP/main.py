@@ -33,3 +33,34 @@ def get_client():
         base_url=STIMA_URL,
         timeout=TIMEOUT
     )
+
+
+async def generate_image(prompt, model_key):
+    """图像生成的仪式，prompt如咒语，模型如画笔"""
+    if not STIMA_KEY:
+        raise gr.Error("API密钥缺失，如遗失的灵魂。")
+    
+    client = get_client()
+    provider, model = MODELS[model_key]
+    
+    try:
+        # 异步调用，如风中的低语
+        response = await client.images.generate(
+            model=model,
+            prompt=prompt,
+            n=1,
+            size="1024x1024",  # 可扩展为参数
+            response_format="b64_json",
+            user="huggingface-user"  # 匿名追踪
+        )
+        
+        if response.data and response.data[0].b64_json:
+            # base64解码，如揭开面纱
+            image_data = base64.b64decode(response.data[0].b64_json)
+            image = Image.open(BytesIO(image_data))
+            return image
+        else:
+            raise gr.Error("响应虚空，如梦醒无痕。")
+    
+    except Exception as e:
+        raise gr.Error(f"生成失败：{str(e)}。或许prompt太狂野，或网络的幽灵作祟。")
