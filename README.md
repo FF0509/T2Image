@@ -12,13 +12,13 @@ The model you can choose:
 
 ### Google
 - [X] Google / Gemini 2.0 Flash Exp Image Generation
-- [X] Google / Veo 3 Fast
-- [X] Google / Veo 3
-- [X] Google / Veo 3 Pro
-- [X] Google / Veo 3 Pro Frames
+- [ ] Google / Veo 3 Fast
+- [ ] Google / Veo 3
+- [ ] Google / Veo 3 Pro
+- [ ] Google / Veo 3 Pro Frames
 
 ### XAI
 - [X] xAI / Grok 3 Image Generation
 
 ### Nana Banana
-- [X] NanoBanana / Nano Banana
+- [ ] NanoBanana / Nano Banana
