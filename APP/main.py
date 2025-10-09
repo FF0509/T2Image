@@ -16,12 +16,12 @@ MODELS = {
     "OpenAI / GPT-4o Image Generation": ("stima", "gpt-4o-image"),
     "OpenAI / DALL·E 3": ("stima", "dall-e-3"),
     "Google / Gemini 2.0 Flash Exp Image Generation": ("stima", "gemini-2.0-flash-exp-image"),
-    "Google / Veo 3 Fast": ("stima", "veo3-fast"),
-    "Google / Veo 3": ("stima", "veo3"),
-    "Google / Veo 3 Pro": ("stima", "veo3-pro"),
-    "Google / Veo 3 Pro Frames": ("stima", "veo3-pro-frames"),
+    # "Google / Veo 3 Fast": ("stima", "veo3-fast"),
+    # "Google / Veo 3": ("stima", "veo3"),
+    # "Google / Veo 3 Pro": ("stima", "veo3-pro"),
+    # "Google / Veo 3 Pro Frames": ("stima", "veo3-pro-frames"),
     "xAI / Grok 3 Image Generation": ("stima", "grok-3-image"),
-    "NanoBanana / Nano Banana": ("stima", "fal-ai/nano-banana"),
+    # "NanoBanana / Nano Banana": ("stima", "fal-ai/nano-banana"),
 }
 
 def get_client():
